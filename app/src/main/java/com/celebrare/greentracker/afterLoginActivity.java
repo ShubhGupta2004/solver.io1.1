@@ -12,6 +12,7 @@ public class afterLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
 
+        
         initalize();
 
         CarbonFootprintCalculator cfc = new CarbonFootprintCalculator();
