@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Add your UI components here, such as EditText, TextView, etc., for collecting food-related data -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_margin="20dp"
+        android:text="Please enter the Food data"/>
+
+    <EditText
+        android:id="@+id/editMeatCalorieIntake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Meat usage"
+        android:layout_margin="20dp"/>
+
+    <EditText
+        android:id="@+id/editGrainCalorieIntake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Grain usage"
+        android:layout_margin="20dp"/>
+
+    <EditText
+        android:id="@+id/editDairyCalorieIntake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dairy usage"
+        android:layout_margin="20dp"/>
+
+    <EditText
+        android:id="@+id/editFruitCalorieIntake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fruit usage"
+        android:layout_margin="20dp"/>
+</LinearLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1067259034708",
+    "project_id": "green-tracker-f1b38",
+    "storage_bucket": "green-tracker-f1b38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067259034708:android:2818cc9c114d12328341c1",
+        "android_client_info": {
+          "package_name": "com.celebrare.greentracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067259034708-mpl2jrp90eukifr7e3t1k94tfrrt98pf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhzTeb87VTJOhgCnPeIXcpoowLAFDolJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067259034708-mpl2jrp90eukifr7e3t1k94tfrrt98pf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

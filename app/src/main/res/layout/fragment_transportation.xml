@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Add your UI components here, such as EditText, TextView, etc., for collecting transportation-related data -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_margin="20dp"
+        android:text="Please enter the Transporation data"/>
+
+    <EditText
+        android:id="@+id/editBikeDistance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Bike usage"
+        android:layout_margin="20dp"/>
+
+    <EditText
+        android:id="@+id/editCarDistance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tv usage"
+        android:layout_margin="20dp"/>
+
+    <EditText
+        android:id="@+id/editBicycleDistance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fridge usage"
+        android:layout_margin="20dp"/>
+
+
+</LinearLayout>

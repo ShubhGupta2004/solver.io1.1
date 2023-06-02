@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".afterLoginActivity"
+    android:background="@drawable/img_1">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_margin="20dp"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+                <!-- Add your UI components here, such as EditText, TextView, etc., for collecting transportation-related data -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Please enter Transporation data"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+
+                <EditText
+                    android:id="@+id/editBikeDistance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="Bike usage" />
+
+                <EditText
+                    android:id="@+id/editCarDistance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="car usage" />
+
+                <EditText
+                    android:id="@+id/editBicycleDistance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="Bicycle usage" />
+            </LinearLayout>
+
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+                <!-- Add your UI components here, such as EditText, TextView, etc., for collecting electronics-related data -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Please enter Electronics data"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/editFanUsage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="Fan usage" />
+
+                <EditText
+                    android:id="@+id/editTVUsage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="Tv usage" />
+
+                <EditText
+                    android:id="@+id/editFridgeUsage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="Fridge usage" />
+
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Please enter Food data"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/editMeatCalorieIntake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="Meat usage" />
+
+                <EditText
+                    android:id="@+id/editGrainCalorieIntake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="Grain usage" />
+
+                <EditText
+                    android:id="@+id/editDairyCalorieIntake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="Dairy usage" />
+
+                <EditText
+                    android:id="@+id/editFruitCalorieIntake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="Fruit usage" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
