@@ -36,7 +36,8 @@
                     android:text="Please enter Transporation data"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp"
+                    android:inputType="number"/>
 
                 <EditText
                     android:id="@+id/editBikeDistance"
@@ -127,7 +128,14 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="20sp" />
-
+                <EditText
+                    android:id="@+id/editWaterCalorieIntake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="Water usage" />
                 <EditText
                     android:id="@+id/editMeatCalorieIntake"
                     android:layout_width="match_parent"

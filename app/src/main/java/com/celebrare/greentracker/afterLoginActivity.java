@@ -1,26 +1,131 @@
 package com.celebrare.greentracker;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.DecimalFormat;
+import java.util.List;
 
 public class afterLoginActivity extends AppCompatActivity {
-    EditText[] list = new EditText[10];
+    EditText[] list = new EditText[11];
+    Button submit;
+    double roundedNumber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
 
-        
+
         initalize();
 
-        CarbonFootprintCalculator cfc = new CarbonFootprintCalculator();
+
+        try {
+            submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    openCustomDialog();
+                }
+            });
+        }catch (Exception e){
+            Toast.makeText(afterLoginActivity.this,"Something went wrong..",Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void openCustomDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_custom);
+        dialog.setCancelable(false);
+
+        TextView editTextInput1 = dialog.findViewById(R.id.editTextInput1);
+        TextView editTextInput2 = dialog.findViewById(R.id.editTextInput2);
+        Button buttonSubmit = dialog.findViewById(R.id.buttonSubmit);
+        Button buttonCancel = dialog.findViewById(R.id.buttonCancel);
+
+        String value1 = help() ;
+        String value2 = prefer();
+
+        editTextInput1.setText(value1);
+        editTextInput2.setText(value2);
+
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle submit button click
+                FirestoreUtils.pushDataToFirestore(roundedNumber);
+                Intent it = new Intent(afterLoginActivity.this,AnalyticsPage.class);
+                it.putExtra("val1",value1);
+                it.putExtra("val2",value2);
+                startActivity(it);
+                // Close the dialog
+                dialog.dismiss();
+            }
+        });
+
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle cancel button click
+                // Close the dialog without updating the values
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
+
+    private String prefer() {
+        List<String> tempAns = preferCarbonMl.calculateRecommendations((Double)Double.parseDouble(list[3].getText().toString()),
+                (Double)Double.parseDouble(list[4].getText().toString()),
+                (Double)Double.parseDouble(list[5].getText().toString()),
+                (Double)Double.parseDouble(list[10].getText().toString()),
+                (Double)Double.parseDouble(list[0].getText().toString()),
+                (Double)Double.parseDouble(list[1].getText().toString()),
+                (Double)Double.parseDouble(list[2].getText().toString()),
+                (Double)Double.parseDouble(list[6].getText().toString()),
+                (Double)Double.parseDouble(list[7].getText().toString()),
+                (Double)Double.parseDouble(list[8].getText().toString()),
+                (Double)Double.parseDouble(list[9].getText().toString()));
+
+        String ans = "";
+        for(int i=0;i<tempAns.size();i++){
+            ans+= tempAns.get(i);
+            ans+="\n";
+        }
+        return ans;
+    }
+
+    private String help() {
+        Double cfc = helper.getTotalCarbonFootPrint((Double)Double.parseDouble(list[3].getText().toString()),
+                (Double)Double.parseDouble(list[4].getText().toString()),
+                (Double)Double.parseDouble(list[5].getText().toString()),
+                (Double)Double.parseDouble(list[10].getText().toString()),
+                (Double)Double.parseDouble(list[0].getText().toString()),
+                (Double)Double.parseDouble(list[1].getText().toString()),
+                (Double)Double.parseDouble(list[2].getText().toString()),
+                (Double)Double.parseDouble(list[6].getText().toString()),
+                (Double)Double.parseDouble(list[7].getText().toString()),
+                (Double)Double.parseDouble(list[8].getText().toString()),
+                (Double)Double.parseDouble(list[9].getText().toString()));
+
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        roundedNumber = Double.parseDouble(decimalFormat.format(cfc));
 
 
+        return  "Value of your carbon emission: " + String.valueOf(roundedNumber);
     }
 
     private void initalize() {
+        submit = findViewById(R.id.submit);
         list[0]=findViewById(R.id.editBikeDistance);
         list[1]=findViewById(R.id.editCarDistance);
         list[2]=findViewById(R.id.editBicycleDistance);
@@ -31,58 +136,7 @@ public class afterLoginActivity extends AppCompatActivity {
         list[7]=findViewById(R.id.editGrainCalorieIntake);
         list[8]=findViewById(R.id.editDairyCalorieIntake);
         list[9]=findViewById(R.id.editFruitCalorieIntake);
+        list[10]=findViewById(R.id.editWaterCalorieIntake);
     }
 }
 
- class CarbonFootprintCalculator {
-
-    // Constants for emissions (adjust the values as needed)
-    private static final double kwhUsedByFanPerHour = 0.065;
-    private static final double kwhUsedByTVPerHour = 0.03;
-    private static final double kwhUsedByFridgePerHour = 0.25;
-    private static final double emissionPerUnitElectricity = 0.475;
-    private static final double emissionPerUnitWater = 0.001;
-    private static final double emissionPerKmCar = 0.313;
-    private static final double emissionPerKmBike = 0.0687;
-    private static final double emissionPerKmBicycle = 0.016;
-    private static final double emissionPerUnitCalorieOfMeat = 219.67;
-    private static final double emissionPerUnitCalorieOfGrain = 15.34;
-    private static final double emissionPerUnitCalorieOfDairy = 1.9;
-    private static final double emissionPerUnitCalorieOfFruit = 1.55;
-
-    public static double getDailyHouseHoldCarbonFootPrint(double hoursFanUsed, double hoursTVUsed, double hoursFridgeUsed, double litresOfWaterUsed) {
-        double electricityConsumptionInKWH = (hoursFanUsed * kwhUsedByFanPerHour) +
-                (hoursTVUsed * kwhUsedByTVPerHour) +
-                (hoursFridgeUsed * kwhUsedByFridgePerHour);
-
-        double emissionDueToElectricity = emissionPerUnitElectricity * electricityConsumptionInKWH;
-        double emissionDueToWater = emissionPerUnitWater * litresOfWaterUsed;
-
-        return emissionDueToElectricity + emissionDueToWater;
-    }
-
-    public static double getDailyTravelFootPrint(double distanceTravelledByBike, double distanceTravelledByCar, double distanceTravelledByBicycle) {
-        double emissionDueToBike = emissionPerKmBike * distanceTravelledByBike;
-        double emissionDueToCar = emissionPerKmCar * distanceTravelledByCar;
-        double emissionDueToBicycle = emissionPerKmBicycle * distanceTravelledByBicycle;
-
-        return emissionDueToBike + emissionDueToCar + emissionDueToBicycle;
-    }
-
-    public static double getDailyFoodCarbonFootPrint(double meatCalorieIntake, double grainCalorieIntake, double dairyCalorieIntake, double fruitCalorieIntake) {
-        double emissionDueToMeat = meatCalorieIntake * emissionPerUnitCalorieOfMeat;
-        double emissionDueToGrain = grainCalorieIntake * emissionPerUnitCalorieOfGrain;
-        double emissionDueToDairy = dairyCalorieIntake * emissionPerUnitCalorieOfDairy;
-        double emissionDueToFruit = fruitCalorieIntake * emissionPerUnitCalorieOfFruit;
-
-        return (emissionDueToMeat + emissionDueToGrain + emissionDueToDairy + emissionDueToFruit) / 1000;
-    }
-
-    public static double getTotalCarbonFootPrint(double hoursFanUsed, double hoursTVUsed, double hoursFridgeUsed, double litresOfWaterUsed, double distanceTravelledByBike, double distanceTravelledByCar, double distanceTravelledByBicycle, double meatCalorieIntake, double grainCalorieIntake, double dairyCalorieIntake, double fruitCalorieIntake) {
-        double householdEmission = getDailyHouseHoldCarbonFootPrint(hoursFanUsed, hoursTVUsed, hoursFridgeUsed, litresOfWaterUsed);
-        double travelEmission = getDailyTravelFootPrint(distanceTravelledByBike, distanceTravelledByCar, distanceTravelledByBicycle);
-        double foodEmission = getDailyFoodCarbonFootPrint(meatCalorieIntake, grainCalorieIntake, dairyCalorieIntake, fruitCalorieIntake);
-
-        return householdEmission + travelEmission + foodEmission;
-    }
-}
