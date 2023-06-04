@@ -52,6 +52,6 @@ class  helper {
         double travelEmission = getDailyTravelFootPrint(distanceTravelledByBike, distanceTravelledByCar, distanceTravelledByBicycle);
         double foodEmission = getDailyFoodCarbonFootPrint(meatCalorieIntake, grainCalorieIntake, dairyCalorieIntake, fruitCalorieIntake);
         Log.d("findme","mm "+meatCalorieIntake+" " +grainCalorieIntake+ " "+dairyCalorieIntake+" ");
-        return householdEmission + travelEmission + foodEmission;
+        return (householdEmission + travelEmission + foodEmission)/20;
     }
 }

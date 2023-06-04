@@ -1,4 +1,7 @@
 package com.celebrare.greentracker;
+import android.util.Log;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Date;
@@ -24,18 +27,14 @@ public class FirestoreUtils {
         data.put("date", new Date());
         data.put("value", value);
 
-        // Push the data to the values subcollection under the user document
         db.collection(USERS_COLLECTION)
                 .document(userId)
                 .collection(VALUES_COLLECTION)
                 .add(data)
                 .addOnSuccessListener(documentReference -> {
-                    // Data successfully added
-                    // Handle success or perform any other operations
                 })
                 .addOnFailureListener(e -> {
-                    // Error occurred while adding data
-                    // Handle error or perform any other operations
+                    Log.d("findme","Some");
                 });
     }
 }

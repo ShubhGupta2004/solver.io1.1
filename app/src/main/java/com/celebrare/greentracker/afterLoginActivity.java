@@ -34,6 +34,11 @@ public class afterLoginActivity extends AppCompatActivity {
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    for(int i=0;i<list.length;i++){
+                        if(list[i].getText().toString().equals("")){
+                            list[i].setText("0");
+                        }
+                    }
                     openCustomDialog();
                 }
             });
@@ -61,9 +66,8 @@ public class afterLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle submit button click
-                FirestoreUtils.pushDataToFirestore(roundedNumber);
                 Intent it = new Intent(afterLoginActivity.this,AnalyticsPage.class);
-                it.putExtra("val1",value1);
+                it.putExtra("val1",roundedNumber);
                 it.putExtra("val2",value2);
                 startActivity(it);
                 // Close the dialog

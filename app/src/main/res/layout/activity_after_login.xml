@@ -36,8 +36,7 @@
                     android:text="Please enter Transporation data"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:inputType="number"/>
+                    android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/editBikeDistance"
@@ -46,7 +45,8 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Bike usage" />
+                    android:hint="Bike usage"
+                    android:inputType="number"/>
 
                 <EditText
                     android:id="@+id/editCarDistance"
@@ -55,7 +55,8 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="car usage" />
+                    android:hint="car usage"
+                    android:inputType="number"/>
 
                 <EditText
                     android:id="@+id/editBicycleDistance"
@@ -64,7 +65,8 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Bicycle usage" />
+                    android:hint="Bicycle usage"
+                    android:inputType="number"/>
             </LinearLayout>
 
 
@@ -92,7 +94,8 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Fan usage" />
+                    android:hint="Fan usage"
+                    android:inputType="number"/>
 
                 <EditText
                     android:id="@+id/editTVUsage"
@@ -101,7 +104,8 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Tv usage" />
+                    android:hint="Tv usage"
+                    android:inputType="number"/>
 
                 <EditText
                     android:id="@+id/editFridgeUsage"
@@ -110,7 +114,8 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Fridge usage" />
+                    android:hint="Fridge usage"
+                    android:inputType="number"/>
 
             </LinearLayout>
 
@@ -135,7 +140,8 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Water usage" />
+                    android:hint="Water usage"
+                    android:inputType="number"/>
                 <EditText
                     android:id="@+id/editMeatCalorieIntake"
                     android:layout_width="match_parent"
@@ -143,7 +149,8 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Meat usage" />
+                    android:hint="Meat usage"
+                    android:inputType="number"/>
 
                 <EditText
                     android:id="@+id/editGrainCalorieIntake"
@@ -152,7 +159,8 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Grain usage" />
+                    android:hint="Grain usage"
+                    android:inputType="number"/>
 
                 <EditText
                     android:id="@+id/editDairyCalorieIntake"
@@ -161,7 +169,8 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Dairy usage" />
+                    android:hint="Dairy usage"
+                    android:inputType="number"/>
 
                 <EditText
                     android:id="@+id/editFruitCalorieIntake"
@@ -170,7 +179,8 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Fruit usage" />
+                    android:hint="Fruit usage"
+                    android:inputType="number"/>
 
             </LinearLayout>
 
