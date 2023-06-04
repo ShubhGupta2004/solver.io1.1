@@ -23,6 +23,7 @@ public class ElectronicsFragment extends Fragment {
         return rootView;
     }
 
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
