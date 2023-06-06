@@ -4,7 +4,7 @@
     xmlns:aapt="http://schemas.android.com/aapt"
     android:width="313dp"
     android:height="49dp"
-    android:viewportWidth="31"
+    android:viewportWidth="313"
     android:viewportHeight="49">
     <group>
         <clip-path
@@ -17,7 +17,7 @@
     </group>
     <path
         android:pathData="M10.5 0.5H302.5C308.023 0.5 312.5 4.97715 312.5 10.5V38.5C312.5 44.0228 308.023 48.5 302.5 48.5H10.5C4.97715 48.5 0.5 44.0228 0.5 38.5V10.5C0.5 4.97715 4.97715 0.5 10.5 0.5Z"
-        android:strokeWidth="1"
+        android:strokeWidth="1.5"
         android:strokeColor="#66000000"
         />
 </vector>

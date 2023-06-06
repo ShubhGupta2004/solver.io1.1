@@ -32,6 +32,7 @@ public class FirestoreUtils {
                 .collection(VALUES_COLLECTION)
                 .add(data)
                 .addOnSuccessListener(documentReference -> {
+                    Log.d("findme","full");
                 })
                 .addOnFailureListener(e -> {
                     Log.d("findme","Some");

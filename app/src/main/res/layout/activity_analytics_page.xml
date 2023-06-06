@@ -32,54 +32,79 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="60dp"
             android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                android:src="@drawable/img_6"
+                android:textColor="@color/lightGreen"
+                android:textSize="25sp" />
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
-                app:cardBackgroundColor="@color/lightGreen">
-            <TextView
-                android:id="@+id/consumPrev"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:padding="10dp"
-                android:textColor="@color/white"
-                android:text="text 1"/>
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/lightGreen"
+                app:cardCornerRadius="20dp">
+
+                <TextView
+                    android:id="@+id/consumPrev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="text 1"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
                 android:layout_marginTop="20dp"
-                app:cardBackgroundColor="@color/lightGreen">
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/lightGreen"
+                app:cardCornerRadius="20dp">
+
                 <TextView
                     android:id="@+id/consumCurr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
                     android:padding="10dp"
+                    android:text="text 1"
                     android:textColor="@color/white"
-                    android:text="text 1"/>
+                    android:textSize="20sp" />
             </androidx.cardview.widget.CardView>
         </androidx.appcompat.widget.LinearLayoutCompat>
+
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/barChart"
             android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
             android:layout_height="400dp"
-            android:background="@drawable/rectangle_1"/>
-
-
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rect_2" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

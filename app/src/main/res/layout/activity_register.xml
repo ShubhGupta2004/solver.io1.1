@@ -6,65 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <TextView
-            android:id="@+id/RegisterUserNameText"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_margin="20dp"
-            android:text="UserName" />
-
-        <EditText
-            android:id="@+id/registerUserNameEditText"
+            android:layout_height="0dp"
+            android:layout_weight="0.75"
+            android:src="@drawable/img_2" />
+        <LinearLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/RegisterUserNameText"
-            android:layout_marginTop="43dp"
-            android:layout_marginBottom="20dp"
-            android:hint="UserName" />
-
-        <TextView
-            android:id="@+id/registerPasswordText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/registerUserNameEditText"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="Password" />
-
-        <EditText
-            android:id="@+id/registerPasswordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/registerPasswordText"
-            android:layout_marginTop="38dp"
-            android:layout_marginBottom="20dp"
-            android:hint="Password"
-            android:autofillHints="password" />
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
 
 
-        <Button
-            android:id="@+id/registerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/registerPasswordEditText"
-            android:text="Login" />
+            <EditText
+                android:id="@+id/registerUserNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rectangle_1"
+                android:hint="UserName"
+                android:paddingStart="20dp"
+                android:layout_marginTop="40dp"/>
+
+            <EditText
+                android:id="@+id/registerPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:paddingStart="20dp"
+                android:background="@drawable/rectangle_1"
+                android:layout_marginBottom="20dp"
+                android:hint="Password" />
 
 
-    </RelativeLayout>
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="112dp"
+                android:text="Register"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

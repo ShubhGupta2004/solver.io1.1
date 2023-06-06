@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 public class rtriveData {
 
@@ -16,10 +17,10 @@ public class rtriveData {
     private static final String USERS_COLLECTION = "users";
     private static final String VALUES_COLLECTION = "values";
 
-    public static List<String> retrieveDataFromFirestore() {
+    public static CompletableFuture<List<String>> retrieveDataFromFirestore() {
         // Get the current user ID
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
+        CompletableFuture<List<String>> future = new CompletableFuture<>();
         // Create a new Firestore instance
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         List<String> map = new ArrayList<>();
@@ -43,13 +44,14 @@ public class rtriveData {
                         System.out.println("Data: "+value);
                         map.add(value);
                     }
+                    future.complete(map);
                 })
                 .addOnFailureListener(e -> {
                     // Error occurred while retrieving data
                     // Handle error or perform any other operations
+                    future.completeExceptionally(e);
                 });
-        System.out.println("Data: "+map.toString());
-        return map;
+        return future;
     }
 }
 

@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="Please enter Transporation data"
+                    android:text="Please enter Transporation data     (in hrs)"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="20sp" />
@@ -57,6 +57,25 @@
                     android:background="@drawable/rectangle_1"
                     android:hint="car usage"
                     android:inputType="number"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="20dp">
+                    <CheckBox
+                        android:id="@+id/carPooling"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="car pooling"/>
+
+                    <CheckBox
+                        android:id="@+id/publicTransport"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="public transport"
+                        android:layout_marginStart="20dp"/>
+                </LinearLayout>
 
                 <EditText
                     android:id="@+id/editBicycleDistance"
@@ -82,29 +101,67 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:text="Please enter Electronics data"
+                    android:text="Please enter Electronics data (in hrs)"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/editFanUsage"
+                    android:id="@+id/editACUsage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Fan usage"
+                    android:hint="AC usage(in hrs)"
+                    android:inputType="numberDecimal"/>
+
+                <EditText
+                    android:id="@+id/editWaterHeaterUsage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="Water Heater usage(in hrs)"
                     android:inputType="number"/>
 
                 <EditText
-                    android:id="@+id/editTVUsage"
+                    android:id="@+id/editWashingMachineUsage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Tv usage"
+                    android:hint="Washing machine usage(in hrs)"
+                    android:inputType="number"/>
+
+                <EditText
+                    android:id="@+id/editincandescentBulbsUsage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="incandescent Bulbs usage"
+                    android:inputType="number"/>
+                <EditText
+                    android:id="@+id/editflourocentBulbsUsageUsage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="florocent Bulbs usage"
+                    android:inputType="number"/>
+                <EditText
+                    android:id="@+id/editledBulbsUsageUsage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="led Bulbs usage"
                     android:inputType="number"/>
 
                 <EditText
@@ -114,7 +171,17 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Fridge usage"
+                    android:hint="Fridge stars(of fridge)"
+                    android:inputType="number"/>
+
+                <EditText
+                    android:id="@+id/editOvenUsage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="Oven usage (in hrs)"
                     android:inputType="number"/>
 
             </LinearLayout>
@@ -129,7 +196,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:text="Please enter Food data"
+                    android:text="Please enter personal data"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="20sp" />
@@ -140,46 +207,69 @@
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Water usage"
+                    android:hint="Water usage (in liters)"
                     android:inputType="number"/>
                 <EditText
-                    android:id="@+id/editMeatCalorieIntake"
+                    android:id="@+id/editBMI"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Meat usage"
+                    android:hint="BMI"
+                    android:inputType="numberDecimal"/>
+
+                <EditText
+                    android:id="@+id/editBmr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingStart="20dp"
+                    android:background="@drawable/rectangle_1"
+                    android:hint="BMR"
                     android:inputType="number"/>
 
                 <EditText
-                    android:id="@+id/editGrainCalorieIntake"
+                    android:id="@+id/editAge"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Grain usage"
+                    android:hint="Age"
                     android:inputType="number"/>
 
-                <EditText
-                    android:id="@+id/editDairyCalorieIntake"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:paddingStart="20dp"
-                    android:background="@drawable/rectangle_1"
-                    android:hint="Dairy usage"
-                    android:inputType="number"/>
+                <RadioGroup
 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gender"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"/>
+                    <RadioButton
+                        android:id="@+id/editSexM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male"/>
+
+                    <RadioButton
+                        android:id="@+id/editSexF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female"/>
+                </RadioGroup>
                 <EditText
-                    android:id="@+id/editFruitCalorieIntake"
+                    android:id="@+id/editexersicetime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:paddingStart="20dp"
                     android:background="@drawable/rectangle_1"
-                    android:hint="Fruit usage"
+                    android:hint="Exersise time(in min)"
                     android:inputType="number"/>
 
             </LinearLayout>

@@ -2,6 +2,7 @@ package com.celebrare.greentracker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         loginMain=findViewById(R.id.Main_login);
         register=findViewById(R.id.registerNewUser);
         auth=FirebaseAuth.getInstance();
-
+        passwordEdittext.setTransformationMethod(new PasswordTransformationMethod());
         loginMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

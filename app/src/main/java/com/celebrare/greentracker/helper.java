@@ -5,53 +5,47 @@ import android.util.Log;
 
 class  helper {
 
-    // Constants for emissions (adjust the values as needed)
-    private static final double kwhUsedByFanPerHour = 0.065;
-    private static final double kwhUsedByTVPerHour = 0.03;
-    private static final double kwhUsedByFridgePerHour = 0.25;
-    private static final double emissionPerUnitElectricity = 0.475;
-    private static final double emissionPerUnitWater = 0.001;
-    private static final double emissionPerKmCar = 0.313;
-    private static final double emissionPerKmBike = 0.0687;
-    private static final double emissionPerKmBicycle = 0.016;
-    private static final double emissionPerUnitCalorieOfMeat = 219.67;
-    private static final double emissionPerUnitCalorieOfGrain = 15.34;
-    private static final double emissionPerUnitCalorieOfDairy = 1.9;
-    private static final double emissionPerUnitCalorieOfFruit = 1.55;
+    public static double calculateCarbonEmission(double airConditionerUsage, double waterHeaterUsage,
+                                                 double washingMachineUsage, double incandescentBulbsUsage,
+                                                 double compactFluorescentBulbsUsage, double ledBulbsUsage,
+                                                 int star1, int star2, int star3, int star4, int star5,
+                                                 double ovenUsage, double waterUsage, double bikeDistance,
+                                                 double carDistance, double bicycleDistance, double bmi, double bmr,
+                                                 int age, String sex, int exerciseTime,boolean carPoling,boolean publicTrans) {
+        // Assign emission factors for each star category
+        double emissionFactor1 = 1.0;
+        double emissionFactor2 = 0.8;
+        double emissionFactor3 = 0.6;
+        double emissionFactor4 = 0.4;
+        double emissionFactor5 = 0.2;
 
-    public static double getDailyHouseHoldCarbonFootPrint(double hoursFanUsed, double hoursTVUsed, double hoursFridgeUsed, double litresOfWaterUsed) {
-        double electricityConsumptionInKWH = (hoursFanUsed * kwhUsedByFanPerHour) +
-                (hoursTVUsed * kwhUsedByTVPerHour) +
-                (hoursFridgeUsed * kwhUsedByFridgePerHour);
-
-        double emissionDueToElectricity = emissionPerUnitElectricity * electricityConsumptionInKWH;
-        double emissionDueToWater = emissionPerUnitWater * litresOfWaterUsed;
-
-        return emissionDueToElectricity + emissionDueToWater;
-    }
-
-    public static double getDailyTravelFootPrint(double distanceTravelledByBike, double distanceTravelledByCar, double distanceTravelledByBicycle) {
-        double emissionDueToBike = emissionPerKmBike * distanceTravelledByBike;
-        double emissionDueToCar = emissionPerKmCar * distanceTravelledByCar;
-        double emissionDueToBicycle = emissionPerKmBicycle * distanceTravelledByBicycle;
-
-        return emissionDueToBike + emissionDueToCar + emissionDueToBicycle;
-    }
-
-    public static double getDailyFoodCarbonFootPrint(double meatCalorieIntake, double grainCalorieIntake, double dairyCalorieIntake, double fruitCalorieIntake) {
-        double emissionDueToMeat = meatCalorieIntake * emissionPerUnitCalorieOfMeat;
-        double emissionDueToGrain = grainCalorieIntake * emissionPerUnitCalorieOfGrain;
-        double emissionDueToDairy = dairyCalorieIntake * emissionPerUnitCalorieOfDairy;
-        double emissionDueToFruit = fruitCalorieIntake * emissionPerUnitCalorieOfFruit;
-
-        return (emissionDueToMeat + emissionDueToGrain + emissionDueToDairy + emissionDueToFruit) / 1000;
-    }
-
-    public static double getTotalCarbonFootPrint(double hoursFanUsed, double hoursTVUsed, double hoursFridgeUsed, double litresOfWaterUsed, double distanceTravelledByBike, double distanceTravelledByCar, double distanceTravelledByBicycle, double meatCalorieIntake, double grainCalorieIntake, double dairyCalorieIntake, double fruitCalorieIntake) {
-        double householdEmission = getDailyHouseHoldCarbonFootPrint(hoursFanUsed, hoursTVUsed, hoursFridgeUsed, litresOfWaterUsed);
-        double travelEmission = getDailyTravelFootPrint(distanceTravelledByBike, distanceTravelledByCar, distanceTravelledByBicycle);
-        double foodEmission = getDailyFoodCarbonFootPrint(meatCalorieIntake, grainCalorieIntake, dairyCalorieIntake, fruitCalorieIntake);
-        Log.d("findme","mm "+meatCalorieIntake+" " +grainCalorieIntake+ " "+dairyCalorieIntake+" ");
-        return (householdEmission + travelEmission + foodEmission)/20;
+        // Calculate carbon emissions based on the given attributes and star categories
+        double carbonEmission = airConditionerUsage * 0.5 +
+                waterHeaterUsage * 0.025 +
+                washingMachineUsage * 0.2 +
+                incandescentBulbsUsage * 0.15 +
+                compactFluorescentBulbsUsage * 0.05 +
+                ledBulbsUsage * 0.03 +
+                star1 * emissionFactor1 +
+                star2 * emissionFactor2 +
+                star3 * emissionFactor3 +
+                star4 * emissionFactor4 +
+                star5 * emissionFactor5 +
+                ovenUsage * 0.6 +
+                waterUsage * 0.002 +
+                bikeDistance * 0.03 +
+                carDistance * 0.2 +
+                bicycleDistance * 0.02 +
+                bmi * 0.1 +
+                bmr * 0.001 +
+                age * 0.05 +
+                (sex.equalsIgnoreCase("male") ? 0.5 : 0.3) +
+                exerciseTime * 0.01;
+        if(carPoling && carDistance!=0){
+            carbonEmission -= 0.5;
+        }else if (publicTrans && carDistance!=0){
+            carbonEmission -= 0.7;
+        }
+        return carbonEmission;
     }
 }
